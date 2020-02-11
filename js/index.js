@@ -40,3 +40,74 @@ const siteContent = {
 // Example: Update the img src for the logo
 let logo = document.getElementById("logo-img");
 logo.setAttribute('src', siteContent["nav"]["img-src"])
+
+let navLinks = document.querySelectorAll('a');
+
+navLinks.forEach((link, index) => {
+  link.textContent = siteContent.nav[`nav-item-${index+1}`];
+  link.style.color = 'blue';
+})
+
+let mainImg = document.querySelector('#cta-img');
+mainImg.setAttribute('src', siteContent['cta']['img-src'])
+
+let header = document.querySelector("h1");
+    header.textContent = "  DOM \r\n Is \r\n Awesome";
+    header.setAttribute('style', 'white-space: pre;');
+
+let button = document.querySelector('.cta-text>button');
+button.textContent = siteContent['cta']['button'];
+
+let middleImg = document.querySelector('#middle-img');
+middleImg.setAttribute('src', siteContent['main-content']['middle-img-src']);
+
+let headers = document.querySelectorAll('h4');
+headers[0].textContent = siteContent['main-content']['features-h4'];
+headers[1].textContent = siteContent['main-content']['about-h4'];
+headers[2].textContent = siteContent['main-content']['services-h4'];
+headers[3].textContent = siteContent['main-content']['product-h4'];
+headers[4].textContent = siteContent['main-content']['vision-h4'];
+headers[5].textContent = siteContent['contact']['contact-h4'];
+
+let paragraphs = document.querySelectorAll('p');
+paragraphs[0].textContent = siteContent['main-content']['features-content']; 
+paragraphs[1].textContent = siteContent['main-content']['about-content']; 
+paragraphs[2].textContent = siteContent['main-content']['services-content'];
+paragraphs[3].textContent = siteContent['main-content']['product-content'];
+paragraphs[4].textContent = siteContent['main-content']['vision-content'];
+paragraphs[5].textContent = siteContent['contact']['address'];
+paragraphs[6].textContent = siteContent['contact']['phone'];
+paragraphs[7].textContent = siteContent['contact']['email'];
+paragraphs[8].textContent = siteContent['footer']['copyright'];
+
+let newNav1 = document.createElement('a');
+let newNav2 = document.createElement('a');
+
+let parentElement = document.querySelector('nav');
+
+parentElement.appendChild(newNav1);
+parentElement.prepend(newNav2);
+
+let newButton = document.createElement('button');
+
+newButton.textContent = "Stretch Goal Button";
+newButton.style.color = 'white';
+newButton.style.backgroundColor = "blue";
+newButton.style.border = '2px outset grey';
+newButton.style.borderRadius = '25px';
+newButton.style.margin = '5px';
+
+let btnParent = document.querySelector('body');
+
+btnParent.prepend(newButton);
+
+newButton.addEventListener('click', changeButton);
+
+function changeButton() {
+  newButton.style.color = 'blue';
+  newButton.style.backgroundColor = 'white';
+  header.style.color = 'darkblue';
+  button.style.color = 'white';
+  button.style.backgroundColor = 'blue';
+  button.style.borderRadius = '25px';
+}
